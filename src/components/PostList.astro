@@ -17,11 +17,11 @@ const years = getYears(allPosts.map((post) => post.data.pubDate));
 
 <nav class="filters" aria-label="Filtrar artículos">
 	<div class="filter-group">
-		<a href="/blog" class:list={[{ active: !activeCategory && !activeYear }]}>Todos</a>
+		<a href="/posts" class:list={[{ active: !activeCategory && !activeYear }]}>Todos</a>
 		{
 			CATEGORIES.map((category) => (
 				<a
-					href={`/blog/categoria/${categoryToSlug(category)}`}
+					href={`/posts/categoria/${categoryToSlug(category)}`}
 					class:list={[{ active: activeCategory === category }]}
 				>
 					{category}
@@ -31,10 +31,10 @@ const years = getYears(allPosts.map((post) => post.data.pubDate));
 	</div>
 	<div class="filter-group">
 		<select id="year-select" aria-label="Filtrar por año">
-			<option value="/blog" selected={!activeYear}>Todos los años</option>
+			<option value="/posts" selected={!activeYear}>Todos los años</option>
 			{
 				years.map((year) => (
-					<option value={`/blog/${year}`} selected={activeYear === year}>
+					<option value={`/posts/${year}`} selected={activeYear === year}>
 						{year}
 					</option>
 				))
@@ -54,7 +54,7 @@ const years = getYears(allPosts.map((post) => post.data.pubDate));
 		{
 			posts.map((post) => (
 				<li>
-					<a href={`/blog/${post.id}/`}>
+					<a href={`/posts/${post.id}/`}>
 						{post.data.heroImage && (
 							<Image width={720} height={360} src={post.data.heroImage} alt="" />
 						)}

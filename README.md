@@ -40,7 +40,7 @@ heroImage: '../../assets/blog/nombre-imagen.jpg'
 Cuerpo del artículo en Markdown normal: ## subtítulos, **negritas**, [links](url), etc.
 ```
 
-- El **nombre del archivo** define la URL del post: `mi-post.md` → `/blog/mi-post`.
+- El **nombre del archivo** define la URL del post: `mi-post.md` → `/posts/mi-post`.
 - `pubDate` en formato `'YYYY-MM-DD'`.
 - `category` debe ser una de las categorías válidas (ver más abajo).
 - `heroImage` es opcional.
@@ -75,13 +75,13 @@ Edita **un solo archivo**: `src/lib/blog.ts`
 export const CATEGORIES = ['Ensayos', 'Reflexión', 'Comunidad', 'Ethereum', 'NuevaCategoría'] as const;
 ```
 
-Agrega la categoría al array. El slug de la URL (`/blog/categoria/...`) se genera automático a partir del nombre. Si la categoría tiene tildes/ñ y quieres una URL más limpia, agrega una línea en `CATEGORY_SLUG_OVERRIDES`, un poco más abajo en el mismo archivo (ejemplo ya hecho con `Reflexión` → `reflexion`).
+Agrega la categoría al array. El slug de la URL (`/posts/categoria/...`) se genera automático a partir del nombre. Si la categoría tiene tildes/ñ y quieres una URL más limpia, agrega una línea en `CATEGORY_SLUG_OVERRIDES`, un poco más abajo en el mismo archivo (ejemplo ya hecho con `Reflexión` → `reflexion`).
 
 Después, en cualquier post puedes usar `category: 'NuevaCategoría'` en el frontmatter. Si pones una categoría que no está en esa lista, el build falla — esto evita typos o categorías duplicadas con nombres distintos.
 
 ## Cómo aparece un nuevo año en el filtro
 
-No requiere ninguna acción. Los años del dropdown de `/blog` se calculan automáticamente a partir del campo `pubDate` de cada post. En cuanto publiques un artículo con una fecha de un año nuevo (ej. `pubDate: '2027-01-15'`), la opción "2027" y la ruta `/blog/2027` aparecen solas en el siguiente build.
+No requiere ninguna acción. Los años del dropdown de `/posts` se calculan automáticamente a partir del campo `pubDate` de cada post. En cuanto publiques un artículo con una fecha de un año nuevo (ej. `pubDate: '2027-01-15'`), la opción "2027" y la ruta `/posts/2027` aparecen solas en el siguiente build.
 
 ## Dark / light mode
 
@@ -102,12 +102,12 @@ Hay un botón (sol/luna) en el header que alterna el tema. Se guarda en `localSt
 │   ├── layouts/BlogPost.astro
 │   ├── pages/
 │   │   ├── index.astro             → /
-│   │   ├── about.astro              → /about
-│   │   └── blog/
-│   │       ├── index.astro          → /blog (listado completo)
-│   │       ├── [...slug].astro      → /blog/:post (cada artículo)
-│   │       ├── [year].astro         → /blog/:year (filtro por año)
-│   │       └── categoria/[category].astro → /blog/categoria/:categoria
+│   │   ├── ahora.astro              → /ahora
+│   │   └── posts/
+│   │       ├── index.astro          → /posts (listado completo)
+│   │       ├── [...slug].astro      → /posts/:post (cada artículo)
+│   │       ├── [year].astro         → /posts/:year (filtro por año)
+│   │       └── categoria/[category].astro → /posts/categoria/:categoria
 │   └── styles/global.css   ← colores, tipografía, modo claro/oscuro
 ├── astro.config.mjs        ← dominio del sitio, fuente (Google Fonts)
 ```
