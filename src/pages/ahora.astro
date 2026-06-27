@@ -7,6 +7,10 @@ import Layout from '../layouts/BlogPost.astro';
 	description="Quién es Juan David Reyes Páez"
 	pubDate={new Date('June 21 2026')}
 >
+	<div class="update-notice">
+		🕰️ <strong>Última actualización:</strong> 21 de junio, 2026.
+	</div>
+
 	<p>Las etiquetas expiran si no se ponen en práctica.</p>
 
 	<p>
@@ -56,4 +60,29 @@ import Layout from '../layouts/BlogPost.astro';
 		Estoy activo en <a href="https://instagram.com/juandavid.xyz">Instagram @juandavid.xyz</a> y
 		<a href="https://t.me/juandaveth">Telegram</a>.
 	</p>
+
+	<div class="now-footer">
+		<p>
+			Esta es mi página <a href="https://nownownow.com/about">/now</a> como propone
+			<a href="https://sive.rs/now">Derek Sivers</a>, un amigo de internet.
+		</p>
+	</div>
 </Layout>
+
+<style>
+	.update-notice {
+		background: rgb(var(--gray-light));
+		padding: 0.8em 1.2em;
+		border-left: 4px solid var(--accent);
+		margin-bottom: 1.5em;
+		font-size: 0.9rem;
+		color: rgb(var(--gray-dark));
+	}
+	.now-footer {
+		margin-top: 3em;
+		padding-top: 1.5em;
+		border-top: 1px solid rgb(var(--gray-light));
+		font-size: 0.9rem;
+		color: rgb(var(--gray));
+	}
+</style>
