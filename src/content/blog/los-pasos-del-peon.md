@@ -2,11 +2,12 @@
 title: 'Los pasos del peón'
 description: 'Cómo el diagnóstico de leucemia de mi hermano transformó la vida familiar, contado a través de una partida de ajedrez.'
 pubDate: '2026-06-24'
+category: 'Ensayos'
+heroImage: '../../assets/blog/heroImage-peon.jpeg'
 ---
+> De cómo el ajedrez casi pone en jaquemate a mi hermano y qué nos enseñó eso como familia.
 
-> Borrador migrado automáticamente desde el blog anterior (resumen, no el texto original). Pendiente de revisión y reemplazo por el texto exacto.
-
-El diagnóstico de leucemia en 2018 transformó la vida familiar. Recuerdo el momento en que mi hermano Ricardo recibió la noticia en la Fundación Santa Fe de Bogotá, y cómo esa experiencia se parece a una partida de ajedrez que se desmorona.
+En 2018, un diagnóstico de leucemia entró a la casa de mi familia y volcó la mesa donde jugábamos nuestra partida cotidiana. El tablero se vino abajo un sábado cualquiera de agosto y las piezas quedaron esparcidas por el suelo. De repente, mi hermano Ricardo pasó de pensar a qué fiesta ir ese día por la noche, a mirarnos en silencio, preguntándose qué hacer con la vida el lunes siguiente, cuando le transfundiera la quimio por el cuello.
 
 La partida cambió abruptamente. Tuvimos que abandonar las estrategias a largo plazo para enfocarnos en la supervivencia inmediata. Cada miembro de la familia asumió un rol: uno fue torre para aguantar el peso de los días, otro alfil para cruzar el caos.
 

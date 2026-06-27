@@ -3,6 +3,7 @@ title: 'El mar conoce a sus héroes invisibles'
 description: 'Un relato sobre los reciclamores de Colombia y el programa ReciclaDREAMS, que los lleva al mar como reconocimiento a su labor ambiental.'
 pubDate: '2025-11-15'
 heroImage: '../../assets/blog/el-mar-conoce-a-sus-heroes-invisibles.jpg'
+category: 'Comunidad'
 ---
 
 > Borrador migrado automáticamente desde el blog anterior (resumen, no el texto original). Pendiente de revisión y reemplazo por el texto exacto.

@@ -5,23 +5,36 @@
  */
 
 :root {
-	--accent: #a8431f;
-	--accent-dark: #6e2a12;
+	--accent: #6b2737;
+	--accent-dark: #491a26;
 	--black: 26, 22, 18;
 	--gray: 130, 118, 105;
 	--gray-light: 235, 230, 222;
 	--gray-dark: 43, 36, 30;
+	--bg: #faf7f0;
 	--gray-gradient: rgba(var(--gray-light), 50%), #fff;
 	--box-shadow:
 		0 2px 6px rgba(var(--gray), 25%), 0 8px 24px rgba(var(--gray), 33%),
 		0 16px 32px rgba(var(--gray), 33%);
+	color-scheme: light;
+}
+:root[data-theme='dark'] {
+	--accent: #c97c8d;
+	--accent-dark: #e6a3b1;
+	--black: 245, 240, 232;
+	--gray: 168, 156, 144;
+	--gray-light: 58, 50, 44;
+	--gray-dark: 235, 228, 218;
+	--bg: #1a1614;
+	color-scheme: dark;
 }
 body {
-	font-family: var(--font-atkinson);
+	font-family: var(--font-serif);
+	font-weight: 300;
 	margin: 0;
 	padding: 0;
 	text-align: left;
-	background: #fdfcfa;
+	background: var(--bg);
 	word-wrap: break-word;
 	overflow-wrap: break-word;
 	color: rgb(var(--gray-dark));
@@ -43,6 +56,7 @@ h6 {
 	margin: 0 0 0.5rem 0;
 	color: rgb(var(--black));
 	line-height: 1.2;
+	font-weight: 700;
 }
 h1 {
 	font-size: 3.052em;

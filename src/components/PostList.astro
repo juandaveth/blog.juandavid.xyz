@@ -1,0 +1,165 @@
+---
+import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+import FormattedDate from './FormattedDate.astro';
+import { CATEGORIES, categoryToSlug, getYears } from '../lib/blog';
+
+interface Props {
+	posts: CollectionEntry<'blog'>[];
+	allPosts: CollectionEntry<'blog'>[];
+	activeCategory?: string;
+	activeYear?: number;
+}
+
+const { posts, allPosts, activeCategory, activeYear } = Astro.props;
+const years = getYears(allPosts.map((post) => post.data.pubDate));
+---
+
+<nav class="filters" aria-label="Filtrar artículos">
+	<div class="filter-group">
+		<a href="/blog" class:list={[{ active: !activeCategory && !activeYear }]}>Todos</a>
+		{
+			CATEGORIES.map((category) => (
+				<a
+					href={`/blog/categoria/${categoryToSlug(category)}`}
+					class:list={[{ active: activeCategory === category }]}
+				>
+					{category}
+				</a>
+			))
+		}
+	</div>
+	<div class="filter-group">
+		<select id="year-select" aria-label="Filtrar por año">
+			<option value="/blog" selected={!activeYear}>Todos los años</option>
+			{
+				years.map((year) => (
+					<option value={`/blog/${year}`} selected={activeYear === year}>
+						{year}
+					</option>
+				))
+			}
+		</select>
+	</div>
+</nav>
+
+<script is:inline>
+	document.getElementById('year-select')?.addEventListener('change', (event) => {
+		window.location.href = event.target.value;
+	});
+</script>
+
+<section>
+	<ul>
+		{
+			posts.map((post) => (
+				<li>
+					<a href={`/blog/${post.id}/`}>
+						{post.data.heroImage && (
+							<Image width={720} height={360} src={post.data.heroImage} alt="" />
+						)}
+						<h4 class="title">{post.data.title}</h4>
+						<p class="date">
+							<FormattedDate date={post.data.pubDate} /> · {post.data.category}
+						</p>
+					</a>
+				</li>
+			))
+		}
+	</ul>
+</section>
+
+<style>
+	.filters {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		gap: 1rem;
+		margin-bottom: 2rem;
+		padding-bottom: 1.5rem;
+		border-bottom: 1px solid rgb(var(--gray-light));
+	}
+	.filter-group {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+	}
+	.filters a {
+		display: inline-block;
+		padding: 0.35em 0.9em;
+		border: 1px solid rgb(var(--gray-light));
+		border-radius: 999px;
+		font-size: 0.85rem;
+		text-decoration: none;
+		color: rgb(var(--gray-dark));
+	}
+	.filters a:hover {
+		border-color: var(--accent);
+		color: var(--accent);
+	}
+	.filters a.active {
+		background: var(--accent);
+		border-color: var(--accent);
+		color: white;
+	}
+	#year-select {
+		padding: 0.35em 0.9em;
+		border: 1px solid rgb(var(--gray-light));
+		border-radius: 999px;
+		font-size: 0.85rem;
+		font-family: var(--font-serif);
+		background: var(--bg);
+		color: rgb(var(--gray-dark));
+		cursor: pointer;
+	}
+	#year-select:hover {
+		border-color: var(--accent);
+	}
+	ul {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 2rem;
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+	}
+	ul li {
+		width: calc(50% - 1rem);
+	}
+	ul li * {
+		text-decoration: none;
+		transition: 0.2s ease;
+	}
+	ul li img {
+		margin-bottom: 0.5rem;
+		border-radius: 12px;
+	}
+	ul li a {
+		display: block;
+	}
+	.title {
+		margin: 0;
+		color: rgb(var(--black));
+		line-height: 1;
+	}
+	.date {
+		margin: 0;
+		color: rgb(var(--gray));
+	}
+	ul li a:hover h4,
+	ul li a:hover .date {
+		color: rgb(var(--accent));
+	}
+	ul a:hover img {
+		box-shadow: var(--box-shadow);
+	}
+	@media (max-width: 720px) {
+		ul {
+			gap: 0.5em;
+		}
+		ul li {
+			width: 100%;
+			text-align: center;
+		}
+	}
+</style>

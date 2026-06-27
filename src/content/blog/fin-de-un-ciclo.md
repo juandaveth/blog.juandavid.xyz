@@ -3,6 +3,7 @@ title: 'Fin de un ciclo'
 description: 'El cierre de cinco años organizando eventos de Ethereum en Latinoamérica, y lo que viene después.'
 pubDate: '2025-11-11'
 heroImage: '../../assets/blog/fin-de-un-ciclo.png'
+category: 'Ethereum'
 ---
 
 > Borrador migrado automáticamente desde el blog anterior (resumen, no el texto original). Pendiente de revisión y reemplazo por el texto exacto.

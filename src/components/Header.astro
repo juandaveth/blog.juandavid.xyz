@@ -10,15 +10,67 @@ import HeaderLink from './HeaderLink.astro';
 			<HeaderLink href="/">Inicio</HeaderLink>
 			<HeaderLink href="/blog">Blog</HeaderLink>
 			<HeaderLink href="/about">Sobre mí</HeaderLink>
+			<button id="theme-toggle" type="button" aria-label="Cambiar entre modo claro y oscuro">
+				<svg class="icon-sun" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+					<path
+						fill="currentColor"
+						d="M12 18a6 6 0 1 0 0-12 6 6 0 0 0 0 12Zm0-15a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0V4a1 1 0 0 1 1-1Zm0 18a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0v-1a1 1 0 0 1 1-1ZM4.93 4.93a1 1 0 0 1 1.41 0l.71.7a1 1 0 1 1-1.42 1.42l-.7-.71a1 1 0 0 1 0-1.41Zm12.02 12.02a1 1 0 0 1 1.41 0l.71.7a1 1 0 1 1-1.41 1.42l-.71-.71a1 1 0 0 1 0-1.41ZM1 12a1 1 0 0 1 1-1h1a1 1 0 1 1 0 2H2a1 1 0 0 1-1-1Zm18 0a1 1 0 0 1 1-1h1a1 1 0 1 1 0 2h-1a1 1 0 0 1-1-1ZM4.93 19.07a1 1 0 0 1 0-1.41l.71-.71a1 1 0 1 1 1.42 1.41l-.71.71a1 1 0 0 1-1.42 0Zm12.02-12.02a1 1 0 0 1 0-1.41l.71-.71a1 1 0 1 1 1.41 1.42l-.7.71a1 1 0 0 1-1.42 0Z"
+					></path>
+				</svg>
+				<svg class="icon-moon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+					<path
+						fill="currentColor"
+						d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79Z"
+					></path>
+				</svg>
+			</button>
 		</div>
 	</nav>
 </header>
+<script is:inline>
+	(function () {
+		const button = document.getElementById('theme-toggle');
+		button?.addEventListener('click', () => {
+			const current = document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light';
+			const next = current === 'dark' ? 'light' : 'dark';
+			document.documentElement.dataset.theme = next;
+			localStorage.setItem('theme', next);
+		});
+	})();
+</script>
 <style>
 	header {
 		margin: 0;
 		padding: 0 1em;
-		background: #fdfcfa;
+		background: var(--bg);
 		border-bottom: 1px solid rgb(var(--gray-light));
+	}
+	#theme-toggle {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 2.2em;
+		height: 2.2em;
+		margin-left: 0.5em;
+		padding: 0;
+		border: 1px solid rgb(var(--gray-light));
+		border-radius: 50%;
+		background: transparent;
+		color: rgb(var(--black));
+		cursor: pointer;
+	}
+	#theme-toggle:hover {
+		border-color: var(--accent);
+		color: var(--accent);
+	}
+	.icon-moon {
+		display: none;
+	}
+	:root[data-theme='dark'] .icon-sun {
+		display: none;
+	}
+	:root[data-theme='dark'] .icon-moon {
+		display: block;
 	}
 	h2 {
 		margin: 0;

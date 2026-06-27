@@ -3,6 +3,7 @@ title: 'Emancipar el amor'
 description: 'Una reflexión sobre qué significa querer bien, a partir de "El arte de amar" de Erich Fromm y la sabiduría ancestral del Valle de Sibundoy.'
 pubDate: '2026-01-07'
 heroImage: '../../assets/blog/emancipar-el-amor.jpg'
+category: 'Reflexión'
 ---
 
 > Borrador migrado automáticamente desde el blog anterior (resumen, no el texto original). Pendiente de revisión y reemplazo por el texto exacto.

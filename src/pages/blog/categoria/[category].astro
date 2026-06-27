@@ -1,0 +1,42 @@
+---
+import { getCollection } from 'astro:content';
+import BaseHead from '../../../components/BaseHead.astro';
+import Footer from '../../../components/Footer.astro';
+import Header from '../../../components/Header.astro';
+import PostList from '../../../components/PostList.astro';
+import { CATEGORIES, categoryToSlug } from '../../../lib/blog';
+import { SITE_DESCRIPTION, SITE_TITLE } from '../../../consts';
+
+export async function getStaticPaths() {
+	return CATEGORIES.map((category) => ({
+		params: { category: categoryToSlug(category) },
+		props: { category },
+	}));
+}
+
+const { category } = Astro.props;
+
+const allPosts = (await getCollection('blog')).sort(
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+const posts = allPosts.filter((post) => post.data.category === category);
+---
+
+<!doctype html>
+<html lang="es">
+	<head>
+		<BaseHead title={`${category} · ${SITE_TITLE}`} description={SITE_DESCRIPTION} />
+		<style>
+			main {
+				width: 960px;
+			}
+		</style>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<PostList posts={posts} allPosts={allPosts} activeCategory={category} />
+		</main>
+		<Footer />
+	</body>
+</html>

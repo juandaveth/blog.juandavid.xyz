@@ -3,6 +3,7 @@ title: 'Nuestra jaula'
 description: 'Reflexión sobre cómo la zona de confort se convierte en un útero artificial: cálido, seguro y limitante.'
 pubDate: '2025-03-05'
 heroImage: '../../assets/blog/nuestra-jaula.jpeg'
+category: 'Ensayos'
 ---
 
 > Borrador migrado automáticamente desde el blog anterior (resumen, no el texto original). Pendiente de revisión y reemplazo por el texto exacto.

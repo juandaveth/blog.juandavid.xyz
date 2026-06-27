@@ -9,7 +9,8 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "hero-image": "node scripts/add-hero-image.mjs"
   },
   "dependencies": {
     "@astrojs/mdx": "^7.0.0",
